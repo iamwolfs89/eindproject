@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import Pages from "./pages/Pages";
 import './App.css';
+import TopMenu from "./components/TopMenu/TopMenu";
+import {BrowserRouter} from "react-router-dom";
+
+
+const apiKey = '210573e058484ecda761969750261c0d';
+
+const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <BrowserRouter>
+            <TopMenu/>
+            <Pages/>
+        </BrowserRouter>
+    );
 }
 
 export default App;
