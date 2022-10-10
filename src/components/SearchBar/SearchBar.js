@@ -1,75 +1,105 @@
 import './SearchBar.css';
-import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {Link} from "react-router-dom";
-// import RecipeCard from "../RecipeCard/RecipeCard";
-import {FcSearch} from "react-icons/fc";
-import Alert from "../../pages/SearchPage/Alert";
 import styled from "styled-components";
-
+import {useEffect, useState} from "react";
+import {FcSearch} from "react-icons/fc";
+import {FaLeaf, FaDrumstickBite} from "react-icons/fa";
+import {useForm} from "react-hook-form";
 
 function SearchBar() {
-    const [alert, setAlert] = useState("");
+    const {handleSubmit, register, formState: {errors}} = useForm({
+        mode: "onChange",
+    });
     const [recipes, setRecipes] = useState([]);
     const [query, setQuery] = useState("");
+    const [vegetarian, toggleVegetarian] = useState(false)
+    const [carnivoor, toggleCarnivoor] = useState(false)
 
     useEffect(() => {
 
-        getData()
-    }, [ ]);
-    async function getData() {
-
-        if (query !== "") {
+        async function getData() {
 
             const apiKey = '31cd2d3fe3fb404dbb1113df8af265fc';
 
             try {
                 let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${apiKey}&number10`)
-
-                if (!result.data.results) {
-                    return setAlert("No recipe found with such name");
-                }
                 // console.log(result);
                 setRecipes(result.data.results);
-                setQuery("");
-                setAlert("");
+
             } catch (e) {
                 console.error(e)
                 console.log(e.response)
             }
-        } else {
-            setAlert("enter a recipe");
         }
+
+        getData()
+    }, [query]);
+
+    function onFormSubmit(data) {
+
     }
 
+    console.log('ERRORS', errors)
 
-    const onChange = e => setQuery(e.target.value);
-
-    const onSubmit = e => {
-        e.preventDefault();
-    };
-
-    return (<div className="search-container">
-            <form onSubmit={onSubmit}
-                  className="search-form">
-                {alert !== "" && <Alert alert={alert}/>}
+    return (
+        <div className="search-container">
+            <form
+                onSubmit={handleSubmit(onFormSubmit)}
+                className="search-form"
+            >
                 <input
                     type="text"
-                    name="query"
-                    onChange={onChange}
+                    {...register("search-details", {
+                        required: "a recipe name is required",
+                        maxLength: {
+                            value: 30,
+                            message: "specify your search"
+                        },
+                        minLength: {
+                            value: 3,
+                            message: "use at least 3 characters"
+                        }
+                    })}
                     value={query}
-                    autoComplete="off"
-                    placeholder="Search Food"
+                    placeholder="Search Recipe"
+                    onChange={(event) => setQuery(event.target.value)}
                 />
-                <button type="submit">
-                    <FcSearch/>
-                </button>
+
+                {errors.name && <p>{errors.name.message}</p>}
+                <label className="button-label">
+                    <button
+                        type="submit"
+                    >
+                        <FcSearch/>
+                    </button>
+                </label>
+                <label className="checkbox-label">
+                    <h6>Vegetarian</h6>
+                    <FaLeaf/>
+                    <input
+                        type="checkbox"
+                        checked={vegetarian}
+                        onChange={() => toggleVegetarian(!vegetarian)}
+                    />
+
+                    <h6>Carnivoor</h6>
+                    <FaDrumstickBite />
+                    <input
+                        type="checkbox"
+                        checked={carnivoor}
+                        onChange={() => toggleCarnivoor(!carnivoor)}
+                    />
+                </label>
+
             </form>
+
             <div className="search-result">
-                {recipes !== [] && recipes.map((recipe) => {
+                {recipes && recipes.map((recipe) => {
                     console.log(recipe)
 
-                    return (<div>
+                    return (
+                        <div>
                             <Card key={recipe.id}>
                                 <Link to="Products/:id"><p>{recipe.title}</p></Link>
                                 <img src={recipe.image} alt={recipe.title}/>
