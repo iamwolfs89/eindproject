@@ -1,38 +1,36 @@
-import axios from "axios";
+import './RecipeCard.css'
 import styled from "styled-components";
-import './App.css';
-import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+// import {useEffect, useState} from "react";
+// import axios from "axios";
 
-function RecipeCard() {
-    const [recipes, setRecipes] = useState("");
-
-    useEffect(() => {
-        async function getData(){
-
-            const apiKey = '31cd2d3fe3fb404dbb1113df8af265fc';
-
-            try{
-                const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?&apiKey=${apiKey}&number10`);
-                console.log(result.data)
-                setRecipes(result.data)
-            } catch (e) {
-                console.error(e)
-                console.log(e.response)
-            }
-        }
-        getData()
-    }, []);
+function RecipeCard( {recipe} ) {
+    // const [recipes, setRecipes] = useState("");
+    //
+    // useEffect(() => {
+    //     async function getData(){
+    //
+    //         const apiKey = '60baf28a5fae40c1b3855f935798447b';
+    //
+    //         try{
+    //             const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?&apiKey=${apiKey}&number2`);
+    //             console.log(result.data)
+    //             setRecipes(result.data)
+    //         } catch (e) {
+    //             console.error(e)
+    //             console.log(e.response)
+    //         }
+    //     }
+    //     getData()
+    // }, []);
 
     return(
         <div className="recipe-card">
-
-            <Card key={recipes.id}>
-                {/*<Link to="Products/:id"><p>{recipes.title}</p></Link>*/}
-                <img src={recipes.image} alt={recipes.title}/>
+            <Card key={recipe.id}>
+                <Link to="ProductsPage/:id"><p>{recipe.title}</p></Link>
+                <img src={recipe.image} alt={recipe.title}/>
                 <Gradient/>
             </Card>
-
         </div>
     )
 

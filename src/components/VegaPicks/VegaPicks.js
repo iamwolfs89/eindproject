@@ -11,8 +11,6 @@ function VegaPicks() {
     const [apiData, setApiData] = useState([]);
 
     useEffect(() => {
-        getVega();
-    }, []);
 
     async function getVega() {
 
@@ -27,9 +25,11 @@ function VegaPicks() {
             console.error(e);
         }
     }
+        getVega();
+    }, []);
 
     return (
-        <div>
+        <div className="Vega-picks">
             <Wrapper>
                 <h3>Vegetarian recipes</h3>
                 <Splide options={{
