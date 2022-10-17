@@ -1,38 +1,37 @@
 import './Product.css';
 import React from 'react';
-import {useState} from "react";
 import {useParams} from "react-router-dom";
-import axios from "axios";
+// import {useState} from "react";
+// import axios from "axios";
 
-function Product() {
 
-    const {id} = useParams();
-    const [apiData, SetApiData] = useState("")
+function Product( ) {
 
-async function fetchData() {
+const {id} = useParams();
 
-        const apiKey = '31cd2d3fe3fb404dbb1113df8af265fc';
+    // const [apiData, SetApiData] = useState("")
 
-        try {
-            const result = await axios.get(`https://api.spoonacular.com/recipes/visualizeRecipe&query{id}&apiKey=${apiKey}`)
-
-            SetApiData(result.data.recipes)
-            console.log(result.data.recipes)
-
-        } catch (e) {
-            console.error(e)
-        }
-    }
-
-fetchData()
+// async function fetchData({id}) {
+//
+//         try {
+//             const result = await axios.get(`https://api.spoonacular.com/recipes/query={id}/information&apiKey=${process.env.REACT_APP_API_KEY3}`)
+//
+//             SetApiData(result.data.recipes)
+//             console.log(result.data.recipes)
+//
+//         } catch (e) {
+//             console.error(e)
+//         }
+//     }
+//
+// fetchData()
 
     return (
         <div>
-            <h2>{apiData.title}</h2>
-            <ul>{apiData.ingredients}</ul>
-            <p>Ready in {apiData.readyInMinutes} !</p>
-            <ol>{apiData.instructions}</ol>
-
+            <h2>{id.title}</h2>
+            <ul>{id.ingredients}</ul>
+            <p>Ready in {id.readyInMinutes} !</p>
+            <ol>{id.instructions}</ol>
         </div>
     );
 }

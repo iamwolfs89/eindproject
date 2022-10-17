@@ -7,6 +7,6 @@ function RecipeBook() {
             RecipeBook
         </div>
     );
-};
+}
 
 export default RecipeBook;

@@ -2,7 +2,7 @@ import './SearchBar.css';
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {FcSearch} from "react-icons/fc";
-import {FaLeaf, FaDrumstickBite} from "react-icons/fa";
+import {FaLeaf, FaDrumstickBite, FaSearch} from "react-icons/fa";
 import {useForm} from "react-hook-form";
 import RecipeCard from "../RecipeCard/RecipeCard";
 
@@ -17,9 +17,9 @@ function SearchBar() {
 
     useEffect(() => {
         async function getData() {
-            const apiKey = '60baf28a5fae40c1b3855f935798447b';
+
             try {
-                let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${apiKey}&number2`)
+                let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY2}&number2`)
                 setRecipes(result.data.results);
             } catch (e) {
                 console.error(e)
@@ -60,7 +60,7 @@ function SearchBar() {
 
                 {errors.name && <p>{errors.name.message}</p>}
                 <label className="button-label">
-                    <FcSearch
+                    <FaSearch
                         role="button"
                         tabIndex="0"
                     />
@@ -74,7 +74,7 @@ function SearchBar() {
                         onChange={() => toggleVegetarian(!vegetarian)}
                     />
 
-                    <h6>Carnivoor</h6>
+                    <h6>Meatlover</h6>
                     <FaDrumstickBite/>
                     <input
                         type="checkbox"

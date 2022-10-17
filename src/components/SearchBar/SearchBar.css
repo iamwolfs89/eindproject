@@ -1,9 +1,12 @@
-.search-result{
+.search-container{
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .search-input{
 }
 
-#Alert{
-    font-size: smaller;
+li{
+    list-style-type: none;
+
 }
