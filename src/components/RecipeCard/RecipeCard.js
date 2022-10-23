@@ -7,7 +7,7 @@ function RecipeCard( {recipe} ) {
     return(
         <div className="recipe-card">
             <Card key={recipe.id}>
-                <Link to="/product/:id"><p>{recipe.title}</p></Link>
+                <Link to={`/product/${recipe.id}`}><p>{recipe.title}</p></Link>
                 <img src={recipe.image} alt={recipe.title}/>
                 <Gradient/>
             </Card>
