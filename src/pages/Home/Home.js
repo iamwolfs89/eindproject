@@ -5,10 +5,10 @@ import SignUp from "../../components/SignUp/SignUp";
 
 function Home() {
     return (
-        <div className="home-overview">
+        <span className="home-overview">
             <VegaPicks/>
             <SignUp/>
-        </div>
+        </span>
     );
 }
 

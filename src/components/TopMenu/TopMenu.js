@@ -1,9 +1,13 @@
 import './TopMenu.css';
-import React from 'react';
+import React, {useContext} from 'react';
 import {NavLink} from "react-router-dom";
 import { FcReading, FcSearch, FcHome } from "react-icons/fc";
+import {AuthContext} from "../../context/AuthContext";
 
 function TopMenu() {
+
+    const {auth} = useContext(AuthContext)
+
     return (
         <div className="nav-container">
             <ul className="nav-menu">
@@ -35,7 +39,7 @@ function TopMenu() {
                 </li>
                 <li>
                     <NavLink to="login">
-                        <h6>Log-in</h6>
+                        {!auth.isAuth ? <h6>Log-in</h6> : <h6>Log-out</h6>}
                     </NavLink>
                 </li>
                 <li>

@@ -19,7 +19,7 @@ function Product() {
             const result = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&number=1&apiKey=${process.env.REACT_APP_API_KEY3}`)
 
             SetApiData(result.data)
-            console.log(result.data)
+            console.log("ik ben product!")
 
         } catch (e) {
             console.error(e)
@@ -27,15 +27,15 @@ function Product() {
     }
 
     fetchData()
-    }, [])
+    }, [id])
 
     return (
         <div>
             <h2>{apiData.title}</h2>
             <img src={apiData.image} alt={apiData.title}/>
-            {/*<ul>{apiData.extendedIngredients}</ul>*/}
-            <p>Ready in {apiData.readyInMinutes} !</p>
-            <ol>{apiData.instructions}</ol>
+            {/*/!*<ul>{apiData.extendedIngredients}</ul>*!/*/}
+            {/*<p>Ready in {apiData.readyInMinutes} !</p>*/}
+            {/*<ol>{apiData.instructions}</ol>*/}
         </div>
     );
 }

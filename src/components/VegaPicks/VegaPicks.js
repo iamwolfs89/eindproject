@@ -13,17 +13,19 @@ function VegaPicks() {
 
     useEffect(() => {
 
-    async function getVega() {
+        async function getVega() {
 
-        try {
-            const response = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY1}&number=10&tags=vegetarian`)
+            try {
+                const response = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY1}&number=10&tags=vegetarian`)
 
-            setApiData(response.data.recipes)
+                setApiData(response.data.recipes)
+                console.log("ik ben vegapicks!")
 
-        } catch (e) {
-            console.error(e);
+            } catch (e) {
+                console.error(e);
+            }
         }
-    }
+
         getVega();
     }, []);
 
