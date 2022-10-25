@@ -1,7 +1,6 @@
 import './SearchBar.css';
 import axios from "axios";
 import {useEffect, useState} from "react";
-// import {FcSearch} from "react-icons/fc";
 import {FaLeaf, FaDrumstickBite, FaSearch} from "react-icons/fa";
 import {useForm} from "react-hook-form";
 import RecipeCard from "../RecipeCard/RecipeCard";

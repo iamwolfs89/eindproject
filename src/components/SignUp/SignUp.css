@@ -1,0 +1,63 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.sign-up-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    background-color: rgb(236, 243, 158);
+    border-radius: 2rem;
+}
+
+.border-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 20rem;
+    border-radius: 2rem;
+    min-width: 15rem;
+
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+}
+
+#email{
+    display: flex;
+    flex-direction: column;
+
+}
+
+#username{
+    display: flex;
+    flex-direction: column;
+
+}
+
+#password{
+    display: flex;
+    flex-direction: column;
+
+}
+
+#sign-up-button{
+
+}

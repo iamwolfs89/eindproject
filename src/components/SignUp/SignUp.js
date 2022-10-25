@@ -29,19 +29,19 @@ function SignUp() {
 
 
     return (
-        <>
-            <div className="title">
+        <div className="form-container">
+            <div className="title-container">
                 <h3>Sign up here!</h3>
             </div>
-            <form className="auth-form" onSubmit={handleSubmit(onFormSubmit)}>
-                <fieldset>
+            <form className="sign-up-form" onSubmit={handleSubmit(onFormSubmit)}>
+                <fieldset className="border-form">
 
-                    <label htmlFor="user-email">
+                    <label htmlFor="email">
                         Email:
                         <input
                             type="email"
                             placeholder="user@email.com"
-                            id="user-email"
+                            id="email"
                             {...register("email", {
                                 required: true,
                                 minLength: {value: 6, message: "Minimum amount of characters is 6",},
@@ -54,7 +54,7 @@ function SignUp() {
                         Username:
                         <input
                             type="text"
-                            placeholder="username"
+                            placeholder="example123"
                             id="username"
                             {...register("username", {
                                 required: true,
@@ -67,7 +67,7 @@ function SignUp() {
                         Password:
                         <input
                             type="password"
-                            placeholder="password"
+                            placeholder="your dog's name?"
                             id="password"
                             {...register("password", {
                                 required: true,
@@ -75,14 +75,14 @@ function SignUp() {
                             })}
                         />
                     </label>
-                    <div className="button-register-container">
-                        <button type="submit" className="register-button">Register</button>
+                    <div className="button-container">
+                        <button type="submit" id="sign-up-button">Sign up!</button>
                     </div>
                 </fieldset>
 
             </form>
 
-        </>
+        </div>
     );
 }
 

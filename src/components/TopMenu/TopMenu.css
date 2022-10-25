@@ -3,9 +3,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-    background-color: saddlebrown;
-    border-radius: 2rem;
+    min-width: 30rem;
+    max-width: 100%;
+    background-color: rgb(19, 42, 19);
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
 }
 
 ul {
@@ -15,7 +17,8 @@ ul {
 .nav-menu{
     display: flex;
     flex-direction: row;
-    flex-basis: 1200px;
+    justify-content: space-evenly;
+    flex-basis: 1000px;
     flex-grow: 0;
     flex-shrink: 1;
     flex-wrap: wrap;
@@ -24,13 +27,30 @@ ul {
 
 .profile-menu{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: start;
     flex-grow: 0;
     flex-shrink: 1;
     flex-wrap: wrap;
+    min-width: 6rem;
     margin: 1rem;
 }
 
 .active-link{
-    color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(236, 243, 158);
+    text-decoration: none;
 }
+
+.not-active{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+

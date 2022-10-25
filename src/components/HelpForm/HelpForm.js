@@ -14,18 +14,19 @@ function HelpForm() {
 
     return (
         <>
+            <div className="form-container3">
             <div className="title">
                 <h3>Help form!</h3>
             </div>
-            <form className="auth-form" onSubmit={handleSubmit(onFormSubmit)}>
-                <fieldset>
+            <form className="help-form" onSubmit={handleSubmit(onFormSubmit)}>
+                <fieldset className="border-form3">
 
                     <label htmlFor="user-email">
                         Email:
                         <input
                             type="email"
                             placeholder="user@email.com"
-                            id="user-email"
+                            id="email"
                             {...register("email", {
                                 required: true,
                                 minLength: {value: 6, message: "Minimum amount of characters is 6",},
@@ -36,9 +37,9 @@ function HelpForm() {
 
                     <label htmlFor="comment">
                         Comment:
-                        <input
-                            type="text"
-                            placeholder="comment here"
+                        <textarea
+                            rows={8}
+                            placeholder="write your comment here"
                             id="comment"
                             {...register("comment", {
                                 required: true,
@@ -46,11 +47,12 @@ function HelpForm() {
                             })}
                         />
                     </label>
-                    <div className="send-button-container">
-                        <button type="submit" className="send-button">Send!</button>
+                    <div className="button-container3">
+                        <button type="submit" id="send-button">Send!</button>
                     </div>
                 </fieldset>
             </form>
+            </div>
         </>
     );
 }

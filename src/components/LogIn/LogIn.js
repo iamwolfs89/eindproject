@@ -30,12 +30,14 @@ function LogIn() {
 
     return (
         <>
-            <div className="inner-container">
-
-                <form onSubmit={handleSubmit(onFormSubmit)}>
+            <div className="form-container2">
+                <div className="title">
+                    <h3>Log in here!</h3>
+                </div>
+                <form className="log-in-form" onSubmit={handleSubmit(onFormSubmit)}>
                     {!auth.isAuth ?
-                        <fieldset>
-                            <legend>Log in!</legend>
+                        <fieldset className="border-form2">
+
                             <label htmlFor="username">
                                 Username:
                                 <input
@@ -49,12 +51,14 @@ function LogIn() {
                                 Password:
                                 <input
                                     type="password"
-                                    id="user-password"
+                                    id="password"
                                     {...register("password", {required: true, minLength: 6})}
                                 />
                             </label>
-                            <button type="submit">Log in</button>
-                            <p>New user? Click <Link to="/signup"><span className="signup-link">here </span></Link>to
+                            <div className="button-container2">
+                            <button id="log-in-button" type="submit">Log in</button>
+                            </div>
+                            <p>New user? Click <Link to="/signup"><span id="sign-up-link">here </span></Link>to
                                 sign up!</p>
                         </fieldset>
                         : <button

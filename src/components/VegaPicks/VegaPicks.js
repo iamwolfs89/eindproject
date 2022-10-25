@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import './VegaPicks.css';
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
@@ -30,10 +29,12 @@ function VegaPicks() {
     }, []);
 
     return (
-        <div className="Vega-picks">
-            <Wrapper>
+        <div className="vega-picks">
+            <div className="title-container">
                 <h3>Vegetarian recipes</h3>
-                <Splide options={{
+            </div>
+            <div className="vega-wrapper">
+                <Splide className="vega-splide" options={{
                     direction: 'ttb',
                     arrows: false,
                     pagination: false,
@@ -51,26 +52,20 @@ function VegaPicks() {
                     rewind: true,
                     rewindSpeed: 10000,
                     speed: 10000,
+
                 }}>
                     {apiData && apiData.map((recipe) => {
                         console.log(recipe)
-                        return (
-                            <SplideSlide>
-                                <RecipeCard
-                                    recipe={recipe}
-                                />
-                            </SplideSlide>
-                        )
+                        return (<SplideSlide>
+                            <RecipeCard
+                                recipe={recipe}
+                            />
+                        </SplideSlide>)
                     })}
                 </Splide>
-            </Wrapper>
+            </div>
         </div>
     );
 }
-
-
-const Wrapper = styled.div`
-  margin: 2rem;
-`;
 
 export default VegaPicks;
