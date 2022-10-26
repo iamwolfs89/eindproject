@@ -1,5 +1,5 @@
 import './LogIn.css';
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {Link} from "react-router-dom";
@@ -68,7 +68,6 @@ function LogIn() {
             </div>
         </>
     );
-
 }
 
 export default LogIn;

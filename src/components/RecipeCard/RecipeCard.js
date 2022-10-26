@@ -1,16 +1,17 @@
+import './RecipeCard.css';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 
 function RecipeCard( {recipe} ) {
 
     return(
-        <div className="recipe-card">
+        <span className="recipe-card">
             <Card key={recipe.id}>
                 <Link to={`/product/${recipe.id}`}><p>{recipe.title}</p></Link>
                 <img src={recipe.image} alt={recipe.title}/>
                 <Gradient/>
             </Card>
-        </div>
+        </span>
     )
 
 }

@@ -1,0 +1,12 @@
+.log-in-overview{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(144, 169, 85);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    min-width: 30rem;
+    max-width: 100%;
+    min-height: 40rem;
+    max-height: 100%;
+}

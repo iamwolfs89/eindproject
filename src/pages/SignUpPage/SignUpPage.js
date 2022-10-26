@@ -4,7 +4,7 @@ import SignUp from "../../components/SignUp/SignUp";
 
 function SignUpPage() {
     return (
-        <div>
+        <div className="sign-up-overview">
             <SignUp />
         </div>
     );

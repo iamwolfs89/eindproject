@@ -2,12 +2,12 @@ import './LogInPage.css';
 import React from 'react';
 import LogIn from "../../components/LogIn/LogIn";
 
-function LogInPage(props) {
+function LogInPage() {
     return (
-        <div>
+        <span className="log-in-overview">
             <LogIn />
-        </div>
+        </span>
     );
-};
+}
 
 export default LogInPage;

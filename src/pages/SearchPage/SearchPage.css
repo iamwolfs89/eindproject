@@ -1,7 +1,4 @@
-.help-overview{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.search-page-overview{
     background-color: rgb(144, 169, 85);
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;

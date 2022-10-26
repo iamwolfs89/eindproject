@@ -1,11 +1,11 @@
-// import './SearchPage.css';
+import './SearchPage.css';
 import React from 'react';
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 
 function SearchPage() {
     return (
-        <div>
+        <div className="search-page-overview">
             <SearchBar/>
         </div>
     );

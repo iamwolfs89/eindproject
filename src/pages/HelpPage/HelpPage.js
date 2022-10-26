@@ -4,7 +4,7 @@ import HelpForm from "../../components/HelpForm/HelpForm";
 
 function HelpPage() {
     return (
-        <div>
+        <div className="help-overview">
             <HelpForm />
         </div>
     );

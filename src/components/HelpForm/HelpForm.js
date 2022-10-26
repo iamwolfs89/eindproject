@@ -25,7 +25,7 @@ function HelpForm() {
                         Email:
                         <input
                             type="email"
-                            placeholder="user@email.com"
+                            placeholder="your@email.com"
                             id="email"
                             {...register("email", {
                                 required: true,
