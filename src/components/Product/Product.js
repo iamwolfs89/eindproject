@@ -30,12 +30,17 @@ function Product() {
     }, [id])
 
     return (
-        <div>
-            <h2>{apiData.title}</h2>
-            <img src={apiData.image} alt={apiData.title}/>
+        <div className="product-page-overview">
+        <div className="product-container">
+            <div className="title-container2">
+                <h3>{apiData.title}</h3>
+            </div>
+
+            <img id="product-img" src={apiData.image} alt={apiData.title}/>
             {/*/!*<ul>{apiData.extendedIngredients}</ul>*!/*/}
             {/*<p>Ready in {apiData.readyInMinutes} !</p>*/}
             {/*<ol>{apiData.instructions}</ol>*/}
+        </div>
         </div>
     );
 }

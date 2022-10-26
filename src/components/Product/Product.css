@@ -1,0 +1,18 @@
+.product-page-overview{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(236, 243, 158);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    min-width: 30rem;
+    max-width: 100%;
+    min-height: 40rem;
+    max-height: 100%;
+}
+
+.product-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}

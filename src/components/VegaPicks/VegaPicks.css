@@ -1,4 +1,22 @@
-.vega-wrapper{
-    margin: 2rem;
+.vega-picks-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
 
+.vega-wrapper{
+
+}
+
+.title-container {
+
+}
+
+#vega-picks-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-right: 2rem  ;
+    margin-left: 0;
 }

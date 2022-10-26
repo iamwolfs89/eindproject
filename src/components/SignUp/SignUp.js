@@ -30,8 +30,9 @@ function SignUp() {
 
     return (
         <div className="form-container">
-            <div className="title-container">
+            <div className="title-container1">
                 <h3>Sign up here!</h3>
+                <h4>For free</h4>
             </div>
             <form className="sign-up-form" onSubmit={handleSubmit(onFormSubmit)}>
                 <fieldset className="border-form">
