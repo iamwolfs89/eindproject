@@ -1,7 +1,7 @@
 .home-overview{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     background-color: rgb(144, 169, 85);
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;

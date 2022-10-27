@@ -15,7 +15,7 @@ function VegaPicks() {
         async function getVega() {
 
             try {
-                const response = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY1}&number=10&tags=vegetarian`)
+                const response = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY1}&number=6&tags=vegetarian`)
 
                 setApiData(response.data.recipes)
                 console.log("ik ben vegapicks!")
@@ -29,42 +29,41 @@ function VegaPicks() {
     }, []);
 
     return (
-        <div className="vega-picks-container">
-            <div className="vega-picks">
+        <div className="vega-picks">
+            <div className="vega-wrapper">
                 <div className="title-container">
-                    <h3 id="vega-picks-title">Vegetarian recipes</h3>
+                    <h3 id="vega-picks-title">Popular vegetarian recipes</h3>
                 </div>
-                <div className="vega-wrapper">
-                    <Splide className="vega-splide" options={{
-                        direction: 'ttb',
-                        arrows: false,
-                        pagination: false,
-                        drag: 'free',
-                        flickMaxPages: 1,
-                        interval: 5000,
-                        start: 0,
-                        perPage: 2,
-                        perMove: 1,
-                        autoplay: true,
-                        pauseOnHover: true,
-                        gap: '2px',
-                        height: 500,
-                        width: 200,
-                        rewind: true,
-                        rewindSpeed: 10000,
-                        speed: 10000,
+                <Splide className="vega-splide" options={{
+                    direction: 'ttb',
+                    arrows: false,
+                    pagination: false,
+                    drag: 'free',
+                    flickMaxPages: 1,
+                    interval: 5000,
+                    start: 0,
+                    perPage: 2,
+                    perMove: 1,
+                    autoplay: true,
+                    // pauseOnHover: true,
+                    gap: '2px',
+                    height: 500,
+                    width: 200,
+                    rewind: true,
+                    rewindSpeed: 10000,
+                    speed: 10000,
 
-                    }}>
-                        {apiData && apiData.map((recipe) => {
-                            console.log(recipe)
-                            return (<SplideSlide>
+                }}>
+                    {apiData && apiData.map((recipe) => {
+                        console.log(recipe)
+                        return (
+                            <SplideSlide>
                                 <RecipeCard
                                     recipe={recipe}
                                 />
                             </SplideSlide>)
-                        })}
-                    </Splide>
-                </div>
+                    })}
+                </Splide>
             </div>
         </div>
     );

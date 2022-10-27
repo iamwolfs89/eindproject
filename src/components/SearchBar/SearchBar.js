@@ -15,22 +15,34 @@ function SearchBar() {
     const [vegetarian, toggleVegetarian] = useState(false)
 
     useEffect(() => {
-        async function getData() {
-            try {
-                let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY3}&number1`)
-                setRecipes(result.data.results);
-            } catch (e) {
-                console.error(e)
-                console.log(e.response)
+        if (vegetarian === true) {
+            async function getVegaRecipes() {
+                try {
+                    const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY1}&diet=vegetarian&number=3`);
+                    setRecipes(result.data.results);
+                    console.log("ik ben vegacheck!")
+                } catch (e) {
+                    console.error(e)
+                    console.log(e.response)
+                }
             }
-        }
-
+            getVegaRecipes()
+        } else {
+            async function getData() {
+                try {
+                    let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY1}&number=3`)
+                    setRecipes(result.data.results);
+                } catch (e) {
+                    console.error(e)
+                    console.log(e.response)
+                }
+            }
         getData()
-    }, [query]);
+        }
+    },[query,vegetarian]);
 
     function onFormSubmit(data) {
     }
-
     console.log('ERRORS', errors)
     return (
         <>
@@ -44,10 +56,11 @@ function SearchBar() {
                         className="search-form"
                     >
                         <label htmlFor="search-bar">
+                            <FaSearch/>
                             <input
                                 type="text"
                                 {...register("search-details", {
-                                    required: "a recipe name is required",
+                                    // required: "a recipe name is required",
                                     maxLength: {
                                         value: 30,
                                         message: "specify your search"
@@ -61,7 +74,7 @@ function SearchBar() {
                                 placeholder="Enter Recipe"
                                 onChange={(event) => setQuery(event.target.value)}
                             />
-                            <FaSearch/>
+
                         </label>
 
                         {errors.name && <p>{errors.name.message}</p>}
@@ -75,15 +88,16 @@ function SearchBar() {
                                 onChange={() => toggleVegetarian(!vegetarian)}
                             />
 
-                            {/*<VegaCheck />*/}
+                            {/*<VegaCheck*/}
+                            {/*     vegetarian={vegetarian}*/}
+                            {/*     toggleVegetarian={toggleVegetarian()}*/}
+                            {/*/>*/}
 
                         </label>
-
                     </form>
                 </div>
                 <div className="search-result">
                     {recipes && recipes.map((recipe) => {
-                        console.log(recipe)
                         return (
                             <ul className="recipe-list">
                                 <li>

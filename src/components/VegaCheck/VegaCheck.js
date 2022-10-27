@@ -1,30 +1,11 @@
 import './VegaCheck.css';
-import React, {useEffect} from 'react';
-import axios from "axios";
+// import React, {useEffect} from 'react';
+// import axios from "axios";
 import {FaLeaf} from "react-icons/fa";
-import {useState} from "@types/react";
+// import {useState} from "@types/react";
 
 
-function VegaCheck() {
-    const [vegetarian, toggleVegetarian] = useState(false)
-
-    useEffect(() => {
-
-        if (vegetarian === true) {
-            async function getVegaRecipes() {
-                try {
-                    const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY2}&diet=vegetarian`);
-                    console.log(response)
-                } catch (e) {
-                    console.error(e)
-                }
-            }
-
-            getVegaRecipes()
-        } else {
-        }
-
-    }, [vegetarian])
+function VegaCheck({vegetarian, toggleVegetarian}) {
 
     return (
         <div>

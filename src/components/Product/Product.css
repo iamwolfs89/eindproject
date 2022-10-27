@@ -11,8 +11,38 @@
     max-height: 100%;
 }
 
+.title-container2{
+
+}
+
 .product-container{
     display: flex;
     flex-direction: column;
     justify-content: start;
+    align-items: center;
+}
+
+.product-recipe{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    font-family: 'Lobster Two', cursive;
+    flex-shrink: 1;
+    flex-grow: 0;
+}
+
+#product-img{
+    border-radius: 2rem;
+    max-width: 20rem;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+#ready{
+    font-family: 'Lobster Two', cursive;
+}
+
+#instructions{
+    font-family: 'Lobster Two', cursive;
 }
