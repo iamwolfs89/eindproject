@@ -1,8 +1,9 @@
-.search-page-overview{
+.recipebook-container{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: rgb(144, 169, 85);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(236, 243, 158);
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
     min-width: 30rem;
@@ -10,4 +11,3 @@
     min-height: 40rem;
     max-height: 100%;
 }
-

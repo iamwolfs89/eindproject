@@ -6,23 +6,30 @@ import Product from "../components/Product/Product";
 import LogInPage from "./LogInPage/LogInPage";
 import SignUpPage from "./SignUpPage/SignUpPage";
 import HelpPage from "./HelpPage/HelpPage";
-import React from 'react';
-import { Route, Routes} from "react-router-dom";
+import React, {useContext} from 'react';
+import {Route, Routes, useLocation} from "react-router-dom";
+import {AuthContext} from "../context/AuthContext";
+import {AnimatePresence} from "framer-motion";
+
 
 function Pages() {
+    const {auth} = useContext(AuthContext)
+    const location = useLocation();
 
     return (
-            <>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/search" element={<SearchPage />} />
-                    <Route path="/recipebook" element={<RecipeBook />} />
-                    <Route path="/product/:id" element={<Product />} />
-                    <Route path="/login" element={<LogInPage />} />
-                    <Route path="/signup" element={<SignUpPage />} />
-                    <Route path="/Help" element={<HelpPage />} />
+        <>
+            <AnimatePresence mode="wait">
+                <Routes location={location} key={location.pathname}>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/search" element={<SearchPage/>}/>
+                    <Route path="/recipebook" element={auth.isAuth ? <RecipeBook/> : <LogInPage/>}/>
+                    <Route path="/product/:id" element={auth.isAuth ? <Product/> : <LogInPage/>}/>
+                    <Route path="/login" element={<LogInPage/>}/>
+                    <Route path="/signup" element={<SignUpPage/>}/>
+                    <Route path="/Help" element={<HelpPage/>}/>
                 </Routes>
-            </>
+            </AnimatePresence>
+        </>
     );
 }
 

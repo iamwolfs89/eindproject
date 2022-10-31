@@ -1,13 +1,19 @@
 import './SearchPage.css';
 import React from 'react';
 import SearchBar from "../../components/SearchBar/SearchBar";
-
+import { motion } from "framer-motion";
 
 function SearchPage() {
     return (
-        <div className="search-page-overview">
+        <motion.div
+            className="search-page-overview"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+        >
             <SearchBar/>
-        </div>
+        </motion.div>
     );
 }
 

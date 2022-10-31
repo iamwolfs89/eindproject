@@ -7,7 +7,7 @@ import {AuthContext} from "../../context/AuthContext";
 
 
 function LogIn() {
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const {loginFunction, auth, logoutFunction} = useContext(AuthContext)
 
     async function onFormSubmit(data) {
@@ -34,8 +34,8 @@ function LogIn() {
                 <div className="title">
                     <h3>Log in here!</h3>
                 </div>
-                <form className="log-in-form" onSubmit={handleSubmit(onFormSubmit)}>
-                    {!auth.isAuth ?
+                {!auth.isAuth ?
+                    <form className="log-in-form" onSubmit={handleSubmit(onFormSubmit)}>
                         <fieldset className="border-form2">
 
                             <label htmlFor="username">
@@ -43,8 +43,15 @@ function LogIn() {
                                 <input
                                     type="text"
                                     id="username"
-                                    {...register("username", {required: true, minLength: 6})}
+                                    {...register("username", {
+                                        required: true,
+                                        minLength: {
+                                            value: 6,
+                                            message: "Minimum amount of characters is 6"
+                                        }
+                                    })}
                                 />
+                                {errors.username && <p id="error-message">{errors.username.message}</p>}
                             </label>
 
                             <label htmlFor="user-password">
@@ -52,19 +59,26 @@ function LogIn() {
                                 <input
                                     type="password"
                                     id="password"
-                                    {...register("password", {required: true, minLength: 6})}
+                                    {...register("password", {
+                                        required: true,
+                                        minLength: {
+                                            value: 6,
+                                            message: "Minimum amount of characters is 6"
+                                        }
+                                    })}
                                 />
+                                {errors.password && <p id="error-message">{errors.password.message}</p>}
                             </label>
                             <div className="button-container2">
-                            <button id="log-in-button" type="submit">Log in</button>
+                                <button id="log-in-button" type="submit">Log in</button>
                             </div>
-                            <p>New user? Click <Link to="/signup"><span id="sign-up-link">here </span></Link>to
+                            <p>New here? Click <Link to="/signup"><span id="sign-up-link">here </span></Link>to
                                 sign up!</p>
                         </fieldset>
-                        : <button
-                            onClick={logoutFunction}
-                            type="button">Log out</button>}
-                </form>
+                    </form>
+                    : <button
+                        onClick={logoutFunction}
+                        type="button">Log out</button>}
             </div>
         </>
     );

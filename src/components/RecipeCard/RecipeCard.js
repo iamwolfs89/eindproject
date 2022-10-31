@@ -5,13 +5,11 @@ import {Link} from "react-router-dom";
 function RecipeCard( {recipe} ) {
 
     return(
-        <div className="recipe-card">
             <div id="card" key={recipe.id}>
                 <Link to={`/product/${recipe.id}`}><p id="recipe-title">{recipe.title}</p></Link>
                 <img id="card-img" src={recipe.image} alt={recipe.title}/>
                 <Gradient/>
             </div>
-        </div>
     )
 
 }

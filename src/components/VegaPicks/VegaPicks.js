@@ -18,7 +18,6 @@ function VegaPicks() {
                 const response = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY1}&number=6&tags=vegetarian`)
 
                 setApiData(response.data.recipes)
-                console.log("ik ben vegapicks!")
 
             } catch (e) {
                 console.error(e);
@@ -55,13 +54,13 @@ function VegaPicks() {
 
                 }}>
                     {apiData && apiData.map((recipe) => {
-                        console.log(recipe)
                         return (
-                            <SplideSlide>
+                            <SplideSlide key={recipe.id}>
                                 <RecipeCard
                                     recipe={recipe}
                                 />
-                            </SplideSlide>)
+                            </SplideSlide>
+                        )
                     })}
                 </Splide>
             </div>

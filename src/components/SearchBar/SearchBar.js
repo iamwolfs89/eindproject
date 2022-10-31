@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {FaLeaf, FaSearch} from "react-icons/fa";
 import {useForm} from "react-hook-form";
 import RecipeCard from "../RecipeCard/RecipeCard";
+
 // import VegaCheck from "../VegaCheck/VegaCheck";
 
 function SearchBar() {
@@ -18,7 +19,7 @@ function SearchBar() {
         if (vegetarian === true) {
             async function getVegaRecipes() {
                 try {
-                    const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY1}&diet=vegetarian&number=3`);
+                    const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY2}&diet=vegetarian&number=8`);
                     setRecipes(result.data.results);
                     console.log("ik ben vegacheck!")
                 } catch (e) {
@@ -26,24 +27,29 @@ function SearchBar() {
                     console.log(e.response)
                 }
             }
+
             getVegaRecipes()
         } else {
             async function getData() {
                 try {
-                    let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY1}&number=3`)
+                    let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY3}&number=8`);
                     setRecipes(result.data.results);
                 } catch (e) {
                     console.error(e)
                     console.log(e.response)
                 }
             }
-        getData()
+
+            getData()
         }
-    },[query,vegetarian]);
+    }, [query, vegetarian]);
 
     function onFormSubmit(data) {
+        console.log(data)
     }
+
     console.log('ERRORS', errors)
+
     return (
         <>
             <div className="search-container">
@@ -55,29 +61,23 @@ function SearchBar() {
                         onSubmit={handleSubmit(onFormSubmit)}
                         className="search-form"
                     >
-                        <label htmlFor="search-bar">
+                        <label htmlFor="search-bar" >
                             <FaSearch/>
                             <input
+                                className="search-bar"
                                 type="text"
-                                {...register("search-details", {
-                                    // required: "a recipe name is required",
-                                    maxLength: {
-                                        value: 30,
-                                        message: "specify your search"
-                                    },
-                                    minLength: {
-                                        value: 3,
-                                        message: "use at least 3 characters"
+                                {...register("search",{
+                                    pattern: {
+                                        value: /[^a-zA-Z0-9 ]/g,
+                                        message: "You can't use special characters"
                                     }
                                 })}
                                 value={query}
                                 placeholder="Enter Recipe"
                                 onChange={(event) => setQuery(event.target.value)}
                             />
-
+                            {errors.search && <p id="error-message">{errors.search.message}</p>}
                         </label>
-
-                        {errors.name && <p>{errors.name.message}</p>}
 
                         <label className="checkbox-container">
                             <h6>Vegetarian</h6>
@@ -97,18 +97,18 @@ function SearchBar() {
                     </form>
                 </div>
                 <div className="search-result">
-                    {recipes && recipes.map((recipe) => {
-                        return (
-                            <ul className="recipe-list">
-                                <li>
+                    <ul className="recipe-list">
+                        {recipes && recipes.map((recipe) => {
+                            return (
+                                <li key={recipe.id}>
                                     <RecipeCard
+
                                         recipe={recipe}
                                     />
                                 </li>
-
-                            </ul>
-                        )
-                    })}
+                            )
+                        })}
+                    </ul>
                 </div>
             </div>
         </>

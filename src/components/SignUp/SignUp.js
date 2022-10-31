@@ -5,7 +5,7 @@ import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 
 function SignUp() {
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const navigate = useNavigate()
 
     async function onFormSubmit(data) {
@@ -49,6 +49,7 @@ function SignUp() {
                                 validate: (value) => value.includes('@'),
                             })}
                         />
+                        {errors.email && <p id="error-message">{errors.email.message}</p>}
                     </label>
 
                     <label htmlFor="username">
@@ -59,9 +60,13 @@ function SignUp() {
                             id="username"
                             {...register("username", {
                                 required: true,
-                                minLength: {value: 6, message: "Minimum amount of characters is 6"}
+                                minLength: {
+                                    value: 6,
+                                    message: "Minimum amount of characters is 6"
+                                }
                             })}
                         />
+                        {errors.username && <p id="error-message">{errors.username.message}</p>}
                     </label>
 
                     <label htmlFor="password">
@@ -72,9 +77,13 @@ function SignUp() {
                             id="password"
                             {...register("password", {
                                 required: true,
-                                minLength: {value: 6, message: "Minimum amount of characters is 6"}
+                                minLength: {
+                                    value: 6,
+                                    message: "Minimum amount of characters is 6"
+                                }
                             })}
                         />
+                        {errors.password && <p id="error-message">{errors.password.message}</p>}
                     </label>
                     <div className="button-container">
                         <button type="submit" id="sign-up-button">Sign up!</button>

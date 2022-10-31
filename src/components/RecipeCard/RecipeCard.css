@@ -10,11 +10,12 @@
 #card{
     min-height: 12rem;
     max-height: 15rem;
+    min-width: 12rem;
     max-width: 15rem;
     border-radius: 2rem;
     overflow: hidden;
     position: relative;
-
+    margin: 0.5rem;
 }
 
 #card-img{

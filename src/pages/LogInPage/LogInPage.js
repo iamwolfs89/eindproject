@@ -1,12 +1,19 @@
 import './LogInPage.css';
 import React from 'react';
 import LogIn from "../../components/LogIn/LogIn";
+import { motion } from "framer-motion";
 
 function LogInPage() {
     return (
-        <span className="log-in-overview">
+        <motion.div
+            className="log-in-overview"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+        >
             <LogIn />
-        </span>
+        </motion.div>
     );
 }
 
