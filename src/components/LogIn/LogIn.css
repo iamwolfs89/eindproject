@@ -38,6 +38,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: end;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 #username{

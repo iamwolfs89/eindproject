@@ -18,10 +18,6 @@
     align-items: center;
 }
 
-.product-container{
-
-}
-
 .product-recipe{
     display: flex;
     flex-direction: column;

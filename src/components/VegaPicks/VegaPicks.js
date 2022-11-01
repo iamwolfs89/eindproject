@@ -21,6 +21,9 @@ function VegaPicks() {
 
             } catch (e) {
                 console.error(e);
+                if (e.response.status === 402) {
+                    alert("You're over the daily quota")
+                }
             }
         }
 

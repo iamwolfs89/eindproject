@@ -8,7 +8,7 @@ function LogInPage() {
         <motion.div
             className="log-in-overview"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 2 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
         >

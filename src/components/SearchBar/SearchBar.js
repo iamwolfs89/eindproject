@@ -24,7 +24,9 @@ function SearchBar() {
                     console.log("ik ben vegacheck!")
                 } catch (e) {
                     console.error(e)
-                    console.log(e.response)
+                    if (e.response.status === 402) {
+                        alert("You're over the daily quota")
+                    }
                 }
             }
 
@@ -32,11 +34,13 @@ function SearchBar() {
         } else {
             async function getData() {
                 try {
-                    let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY3}&number=8`);
+                    let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY3}&number=10`);
                     setRecipes(result.data.results);
                 } catch (e) {
                     console.error(e)
-                    console.log(e.response)
+                    if (e.response.status === 402) {
+                        alert("You're over the daily quota")
+                    }
                 }
             }
 
@@ -48,7 +52,7 @@ function SearchBar() {
         console.log(data)
     }
 
-    console.log('ERRORS', errors)
+    // console.log('ERRORS', errors)
 
     return (
         <>
@@ -87,12 +91,6 @@ function SearchBar() {
                                 checked={vegetarian}
                                 onChange={() => toggleVegetarian(!vegetarian)}
                             />
-
-                            {/*<VegaCheck*/}
-                            {/*     vegetarian={vegetarian}*/}
-                            {/*     toggleVegetarian={toggleVegetarian()}*/}
-                            {/*/>*/}
-
                         </label>
                     </form>
                 </div>

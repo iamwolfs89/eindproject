@@ -38,6 +38,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: end;
+    margin: 2rem;
 }
 
 #email{

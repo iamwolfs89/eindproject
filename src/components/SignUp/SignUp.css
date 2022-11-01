@@ -31,6 +31,10 @@
     flex-shrink: 1;
 }
 
+.button-container{
+    margin-top: 4rem;
+}
+
 #sign-up-button {
     align-items: center;
     background-clip: padding-box;

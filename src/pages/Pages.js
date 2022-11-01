@@ -1,4 +1,3 @@
-import './Pages.css';
 import Home from "./Home/Home";
 import SearchPage from "./SearchPage/SearchPage";
 import RecipeBook from "./RecipeBook/RecipeBook";
