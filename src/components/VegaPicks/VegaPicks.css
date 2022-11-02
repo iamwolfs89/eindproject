@@ -5,10 +5,22 @@
     align-items: start;
 }
 
+.title-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}
+
+#splide03{
+    margin-left: 0.4rem;
+}
+
 #vega-picks-title{
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
+    align-items: start;
     margin-right: 1rem;
     margin-left: 1rem;
 }

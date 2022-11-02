@@ -27,14 +27,14 @@ function TopMenu() {
                         </NavLink>
                     </div>
                 </li>
-                <li>
-                    <div className="fc-recipe-container">
-                        <NavLink to="/recipebook" className={({isActive}) => isActive ? "active-link" : "not-active"}>
-                            <FaReadme/>
-                            <h4>Recipebook</h4>
-                        </NavLink>
-                    </div>
-                </li>
+                {/*<li>*/}
+                {/*    <div className="fc-recipe-container">*/}
+                {/*        <NavLink to="/recipebook" className={({isActive}) => isActive ? "active-link" : "not-active"}>*/}
+                {/*            <FaReadme/>*/}
+                {/*            <h4>Recipebook</h4>*/}
+                {/*        </NavLink>*/}
+                {/*    </div>*/}
+                {/*</li>*/}
             </ul>
 
             <ul className="profile-menu">

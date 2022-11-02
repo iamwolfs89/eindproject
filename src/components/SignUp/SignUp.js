@@ -45,7 +45,10 @@ function SignUp() {
                             id="email"
                             {...register("email", {
                                 required: true,
-                                minLength: {value: 6, message: "Minimum amount of characters is 6",},
+                                minLength: {
+                                    value: 6,
+                                    message: "Minimum amount of characters is 6",
+                                },
                                 validate: (value) => value.includes('@'),
                             })}
                         />

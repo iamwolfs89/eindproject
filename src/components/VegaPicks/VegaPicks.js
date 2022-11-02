@@ -22,7 +22,7 @@ function VegaPicks() {
             } catch (e) {
                 console.error(e);
                 if (e.response.status === 402) {
-                    alert("You're over the daily quota")
+                    alert("You've reached the daily quota")
                 }
             }
         }
@@ -47,7 +47,7 @@ function VegaPicks() {
                     perPage: 2,
                     perMove: 1,
                     autoplay: true,
-                    // pauseOnHover: true,
+                    pauseOnHover: true,
                     gap: '2px',
                     height: 500,
                     width: 200,

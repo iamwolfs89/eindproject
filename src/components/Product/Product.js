@@ -25,7 +25,7 @@ function Product() {
             } catch (e) {
                 console.error(e)
                 if (e.response.status === 402) {
-                    alert("You're over the daily quota")
+                    alert("You've reached the daily quota")
                 }
             }
         }
@@ -61,19 +61,20 @@ function Product() {
                             <p dangerouslySetInnerHTML={{__html: apiData.instructions}}></p>
                         </div>
                     )}
-                    {/*{activeButton === 'ingredients' && (*/}
-                    {/*    <div id="ingredients">*/}
-                    {/*        <ul>*/}
-                    {/*            {apiData && apiData.extendedIngredients.map((ingredient) => {*/}
-                    {/*                return (*/}
-                    {/*                    <li key={ingredient.id}>*/}
-                    {/*                        {ingredient.original}*/}
-                    {/*                    </li>*/}
-                    {/*                )*/}
-                    {/*            })}*/}
-                    {/*        </ul>*/}
-                    {/*    </div>*/}
-                    {/*)}*/}
+                    {activeButton === 'ingredients' && (
+                        <div id="ingredients">
+                            <ul>
+                                {Object.keys(apiData).length > 0 && apiData.extendedIngredients.map((ingredient) => {
+
+                                    return (
+                                        <li key={ingredient.id}>
+                                            {ingredient.original}
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import Home from "./Home/Home";
 import SearchPage from "./SearchPage/SearchPage";
-import RecipeBook from "./RecipeBook/RecipeBook";
+// import RecipeBook from "./RecipeBook/RecipeBook";
 import Product from "../components/Product/Product";
 import LogInPage from "./LogInPage/LogInPage";
 import SignUpPage from "./SignUpPage/SignUpPage";
@@ -21,7 +21,7 @@ function Pages() {
                 <Routes location={location} key={location.pathname}>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/search" element={<SearchPage/>}/>
-                    <Route path="/recipebook" element={auth.isAuth ? <RecipeBook/> : <LogInPage/>}/>
+                    {/*<Route path="/recipebook" element={auth.isAuth ? <RecipeBook/> : <LogInPage/>}/>*/}
                     <Route path="/product/:id" element={auth.isAuth ? <Product/> : <LogInPage/>}/>
                     <Route path="/login" element={<LogInPage/>}/>
                     <Route path="/signup" element={<SignUpPage/>}/>

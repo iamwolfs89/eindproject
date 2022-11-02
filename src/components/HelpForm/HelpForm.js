@@ -4,7 +4,7 @@ import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 
 function HelpForm() {
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
     const navigate = useNavigate();
 
     function onFormSubmit(data) {
@@ -33,6 +33,7 @@ function HelpForm() {
                                 validate: (value) => value.includes('@'),
                             })}
                         />
+                        {errors.email && <p id="error-message">{errors.email.message}</p>}
                     </label>
 
                     <label htmlFor="comment">
@@ -43,9 +44,13 @@ function HelpForm() {
                             id="comment"
                             {...register("comment", {
                                 required: true,
-                                maxLength: {value: 200, message: "you've passed the amount of characters you can use"}
+                                maxLength: {
+                                    value: 200,
+                                    message: "you've passed the amount of characters you can use"
+                                }
                             })}
                         />
+                        {errors.comment && <p id="error-message">{errors.comment.message}</p>}
                     </label>
                     <div className="button-container3">
                         <button type="submit" id="send-button">Send!</button>

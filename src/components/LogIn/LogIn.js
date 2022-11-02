@@ -32,7 +32,7 @@ function LogIn() {
         <>
             <div className="form-container2">
                 <div className="title">
-                    <h3>Log in here!</h3>
+                    {!auth.isAuth ? <h3>Log in here!</h3> : <h3>Log out here!</h3>}
                 </div>
                 {!auth.isAuth ?
                     <form className="log-in-form" onSubmit={handleSubmit(onFormSubmit)}>

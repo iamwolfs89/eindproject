@@ -25,7 +25,7 @@ function SearchBar() {
                 } catch (e) {
                     console.error(e)
                     if (e.response.status === 402) {
-                        alert("You're over the daily quota")
+                        alert("You've reached the daily quota")
                     }
                 }
             }
@@ -39,7 +39,7 @@ function SearchBar() {
                 } catch (e) {
                     console.error(e)
                     if (e.response.status === 402) {
-                        alert("You're over the daily quota")
+                        alert("You've reached the daily quota")
                     }
                 }
             }
@@ -51,8 +51,6 @@ function SearchBar() {
     function onFormSubmit(data) {
         console.log(data)
     }
-
-    // console.log('ERRORS', errors)
 
     return (
         <>
@@ -70,17 +68,11 @@ function SearchBar() {
                             <input
                                 className="search-bar"
                                 type="text"
-                                {...register("search",{
-                                    pattern: {
-                                        value: /[^a-zA-Z0-9 ]/g,
-                                        message: "You can't use special characters"
-                                    }
-                                })}
+                                {...register("search")}
                                 value={query}
                                 placeholder="Enter Recipe"
                                 onChange={(event) => setQuery(event.target.value)}
                             />
-                            {errors.search && <p id="error-message">{errors.search.message}</p>}
                         </label>
 
                         <label className="checkbox-container">

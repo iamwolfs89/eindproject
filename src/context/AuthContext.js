@@ -65,7 +65,7 @@ function AuthContextF({ children }) {
             username: user,
         });
         console.log("we're in!");
-        navigate("/recipebook");
+        navigate("/search");
     }
 
 
@@ -77,7 +77,6 @@ function AuthContextF({ children }) {
         });
         localStorage.clear();
         console.log("we're out!");
-        navigate("/")
     }
 
     const contextData = {
