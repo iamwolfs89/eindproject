@@ -49,11 +49,18 @@ REACT_APP_API_KEY3=610f34add1194424abfd818942853193
 
 ### The Web application
 
+Home-page
+![](D:/NOVI/Frontend/Schermopname (21).png)
 
+Search-page
+![](D:/NOVI/Frontend/Schermopname (22).png)
+
+Recipe-page
+![](D:/NOVI/Frontend/Schermopname (24).png)
 
 ## How to get started
 
-### 'Open your Integrated Development Environment'
+### Open your Integrated Development Environment
 
 And open the terminal in your IDE
 
@@ -64,15 +71,16 @@ Type this in your terminal to check if node-js is installed
 If NOT?
 Install here: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
-### 'Clone the project from gitHub'
+### Clone the project from gitHub
 
 ### `npm install`
 
-Type this in your terminal and all the necessary dependencies will be installed
+Type this in your terminal after you've cloned the project.
+All the necessary dependencies will be installed
 
 ### `npm run start`
 
-Type this in your terminal and the app wil run in the development mode.
+Type this in your terminal and the app wil run in the development mode. 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
