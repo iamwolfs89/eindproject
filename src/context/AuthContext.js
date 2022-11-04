@@ -16,7 +16,6 @@ function AuthContextF({ children }) {
         const token = localStorage.getItem('token');
 
         if (token) {
-            console.log('er is een token')
             const decodedToken = jwtDecode(token)
             getUserData(token, decodedToken)
             console.log(decodedToken);
@@ -26,7 +25,7 @@ function AuthContextF({ children }) {
             toggleAuth({
                 ...auth,
                 status: 'done',
-            })
+            });
         }
     }, []);
 
@@ -50,6 +49,11 @@ function AuthContextF({ children }) {
 
         } catch (e) {
             console.error(e)
+            localStorage.clear();
+            toggleAuth({
+                ...auth,
+                status: 'done',
+            });
         }
     }
 
@@ -62,7 +66,7 @@ function AuthContextF({ children }) {
         toggleAuth({
             ...auth,
             isAuth: true,
-            username: user,
+            username: decodedToken.sub,
         });
         console.log("we're in!");
         navigate("/search");
@@ -88,7 +92,7 @@ function AuthContextF({ children }) {
 
     return (
         <AuthContext.Provider value={contextData}>
-            {auth.status = 'done' ? children : <p>Loading...</p> }
+            {auth.status === 'done' ? children : <p>a moment please...</p> }
         </AuthContext.Provider>
     )
 }

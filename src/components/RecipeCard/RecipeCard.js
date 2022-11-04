@@ -6,9 +6,11 @@ function RecipeCard( {recipe} ) {
 
     return(
             <div id="card" key={recipe.id}>
-                <Link to={`/product/${recipe.id}`}><p id="recipe-title">{recipe.title}</p></Link>
+                <Link to={`/product/${recipe.id}`}>
+                    <p id="recipe-title">{recipe.title}</p>
                 <img id="card-img" src={recipe.image} alt={recipe.title}/>
                 <Gradient/>
+                </Link>
             </div>
     )
 

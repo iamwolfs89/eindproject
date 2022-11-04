@@ -15,7 +15,7 @@ function VegaPicks() {
         async function getVega() {
 
             try {
-                const response = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY1}&number=6&tags=vegetarian`)
+                const response = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY1}&number=8&tags=vegetarian`)
 
                 setApiData(response.data.recipes)
 

@@ -21,9 +21,10 @@ function SignUp() {
         } catch (e) {
             console.error(e)
             alert(e.response.data.message)
+            if (e.response.status === 400) {
+                navigate("/login")
+            }
         }
-
-
         console.log(data);
     }
 

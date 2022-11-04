@@ -19,7 +19,7 @@ function SearchBar() {
         if (vegetarian === true) {
             async function getVegaRecipes() {
                 try {
-                    const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY2}&diet=vegetarian&number=8`);
+                    const result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY2}&diet=vegetarian&number=12`);
                     setRecipes(result.data.results);
                     console.log("ik ben vegacheck!")
                 } catch (e) {
@@ -34,7 +34,7 @@ function SearchBar() {
         } else {
             async function getData() {
                 try {
-                    let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY3}&number=10`);
+                    let result = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.REACT_APP_API_KEY3}&number=12`);
                     setRecipes(result.data.results);
                 } catch (e) {
                     console.error(e)
@@ -64,7 +64,7 @@ function SearchBar() {
                         className="search-form"
                     >
                         <label htmlFor="search-bar" >
-                            <FaSearch/>
+                            {/*<FaSearch/>*/}
                             <input
                                 className="search-bar"
                                 type="text"

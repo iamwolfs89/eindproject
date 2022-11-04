@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useState} from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 function Product() {
 
@@ -19,8 +20,6 @@ function Product() {
                 const result = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&number=1&apiKey=${process.env.REACT_APP_API_KEY3}`)
 
                 SetApiData(result.data)
-                console.log("ik ben product!")
-                console.log(result.data)
 
             } catch (e) {
                 console.error(e)
@@ -34,7 +33,13 @@ function Product() {
     }, [id])
 
     return (
-        <div className="product-page-overview">
+        <motion.div
+            className="product-page-overview"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+        >
             <div className="product-container">
                 <div className="title-container2">
                     <h3>{apiData.title}</h3>
@@ -77,7 +82,7 @@ function Product() {
                     )}
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 
