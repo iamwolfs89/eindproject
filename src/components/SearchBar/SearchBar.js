@@ -8,7 +8,7 @@ import RecipeCard from "../RecipeCard/RecipeCard";
 // import VegaCheck from "../VegaCheck/VegaCheck";
 
 function SearchBar() {
-    const {handleSubmit, register, formState: {errors}} = useForm({
+    const {handleSubmit, register} = useForm({
         mode: "onChange",
     });
     const [recipes, setRecipes] = useState([]);
