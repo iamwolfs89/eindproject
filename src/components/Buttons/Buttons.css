@@ -1,60 +1,12 @@
-.form-container2{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-}
-
-.title{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.log-in-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-    background-color: rgb(236, 243, 158);
-    border-radius: 2rem;
-}
-
-.border-form2{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 20rem;
-    border-radius: 2rem;
-    min-width: 15rem;
-
-    flex-grow: 0;
-    flex-shrink: 1;
-}
-
-.button-container2{
+.button-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: end;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin: 2rem;
 }
 
-#username{
-    display: flex;
-    flex-direction: column;
-
-}
-
-#password{
-    display: flex;
-    flex-direction: column;
-
-}
-
-#log-in-button{
+#button{
     align-items: center;
     background-clip: padding-box;
     background-color: rgb(214, 40, 40);
@@ -82,17 +34,17 @@
     width: auto;
 }
 
-#log-in-button:hover,
-#log-in-button:focus {
+#button:hover,
+#button:focus {
     background-color: #fb8332;
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 
-#log-in-button:hover {
+#button:hover {
     transform: translateY(-1px);
 }
 
-#log-in-button:active {
+#button:active {
     background-color: rgb(19, 42, 19);
     box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
     transform: translateY(0);

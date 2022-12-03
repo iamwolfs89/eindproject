@@ -1,7 +1,7 @@
 import './TopMenu.css';
 import React, {useContext} from 'react';
 import {NavLink} from "react-router-dom";
-import {FaReadme , FaSearch, FaHome} from "react-icons/fa";
+import {FaSearch, FaHome} from "react-icons/fa";
 import {AuthContext} from "../../context/AuthContext";
 
 function TopMenu() {

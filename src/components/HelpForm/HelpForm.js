@@ -1,7 +1,9 @@
-import './HelpForm.css';
+import '../Forms/Forms.css';
 import React from 'react';
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
+import Forms from "../Forms/Forms";
+import Buttons from "../Buttons/Buttons";
 
 function HelpForm() {
     const {register, handleSubmit, formState: {errors}} = useForm();
@@ -14,12 +16,12 @@ function HelpForm() {
 
     return (
         <>
-            <div className="form-container3">
+            <div className="form-container">
             <div className="title">
                 <h3>Help form!</h3>
             </div>
             <form className="help-form" onSubmit={handleSubmit(onFormSubmit)}>
-                <fieldset className="border-form3">
+                <fieldset className="border-form">
 
                     <label htmlFor="user-email">
                         Email:
@@ -52,9 +54,9 @@ function HelpForm() {
                         />
                         {errors.comment && <p id="error-message">{errors.comment.message}</p>}
                     </label>
-                    <div className="button-container3">
-                        <button type="submit" id="send-button">Send!</button>
-                    </div>
+                    <Buttons
+                        buttonText="Send!"
+                    />
                 </fieldset>
             </form>
             </div>

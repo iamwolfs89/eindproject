@@ -1,11 +1,10 @@
 import './SearchBar.css';
 import axios from "axios";
 import {useEffect, useState} from "react";
-import {FaLeaf, FaSearch} from "react-icons/fa";
+import {FaLeaf} from "react-icons/fa";
 import {useForm} from "react-hook-form";
 import RecipeCard from "../RecipeCard/RecipeCard";
-
-// import VegaCheck from "../VegaCheck/VegaCheck";
+import Checkbox from "../Checkbox/Checkbox";
 
 function SearchBar() {
     const {handleSubmit, register} = useForm({
@@ -64,7 +63,6 @@ function SearchBar() {
                         className="search-form"
                     >
                         <label htmlFor="search-bar" >
-                            {/*<FaSearch/>*/}
                             <input
                                 className="search-bar"
                                 type="text"
@@ -74,16 +72,12 @@ function SearchBar() {
                                 onChange={(event) => setQuery(event.target.value)}
                             />
                         </label>
-
-                        <label className="checkbox-container">
-                            <h6>Vegetarian</h6>
-                            <FaLeaf/>
-                            <input
-                                type="checkbox"
-                                checked={vegetarian}
-                                onChange={() => toggleVegetarian(!vegetarian)}
-                            />
-                        </label>
+                        <Checkbox
+                            title="vegetarian"
+                            icon={<FaLeaf/>}
+                            diet={vegetarian}
+                            toggle={toggleVegetarian}
+                        />
                     </form>
                 </div>
                 <div className="search-result">

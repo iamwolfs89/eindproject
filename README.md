@@ -60,12 +60,15 @@ REACT_APP_API_KEY3=610f34add1194424abfd818942853193
 ### The Web application
 
 Home-page
+
 ![](images/Schermopname%20(21).png)
 
 Search-page
+
 ![](images/Schermopname%20(22).png)
 
 Recipe-page
+
 ![](images/Schermopname%20(24).png)
 
 ## How to get started
@@ -108,6 +111,7 @@ It will delete every account by the hour.
 * The username and password input-field needs at least 6 characters
 * Finally click on the `Sign-up!` -button
 * thereafter it will automatically navigate you to the log-in-page
+
 ![](images/Schermopname%20(29).png)
 
 ### 2 Logging in!
@@ -116,4 +120,5 @@ It will delete every account by the hour.
 * Click on the `Log-in` -button
 * You'll will be automatically navigated to the search-page, now it's possible for you to look up some recipes and get 
 the ingredients and instructions
+
 ![](images/Schermopname%20(25).png)

@@ -1,8 +1,9 @@
-import './SignUp.css';
+import '../Forms/Forms.css';
 import React from 'react';
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
+import Buttons from "../Buttons/Buttons";
 
 function SignUp() {
     const {register, handleSubmit, formState: {errors}} = useForm();
@@ -89,9 +90,9 @@ function SignUp() {
                         />
                         {errors.password && <p id="error-message">{errors.password.message}</p>}
                     </label>
-                    <div className="button-container">
-                        <button type="submit" id="sign-up-button">Sign up!</button>
-                    </div>
+                    <Buttons
+                        buttonText="Sign up"
+                    />
                 </fieldset>
 
             </form>

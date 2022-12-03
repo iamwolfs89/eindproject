@@ -1,9 +1,11 @@
-import './LogIn.css';
+import '../Forms/Forms.css';
 import React, {useContext} from 'react';
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
+import Forms from "../Forms/Forms";
+import Buttons from "../Buttons/Buttons";
 
 
 function LogIn() {
@@ -30,13 +32,14 @@ function LogIn() {
 
     return (
         <>
-            <div className="form-container2">
+            <Forms/>
+            <div className="form-container">
                 <div className="title">
                     {!auth.isAuth ? <h3>Log in here!</h3> : <h3>Log out here!</h3>}
                 </div>
                 {!auth.isAuth ?
                     <form className="log-in-form" onSubmit={handleSubmit(onFormSubmit)}>
-                        <fieldset className="border-form2">
+                        <fieldset className="border-form">
 
                             <label htmlFor="username">
                                 Username:
@@ -69,9 +72,9 @@ function LogIn() {
                                 />
                                 {errors.password && <p id="error-message">{errors.password.message}</p>}
                             </label>
-                            <div className="button-container2">
-                                <button id="log-in-button" type="submit">Log in</button>
-                            </div>
+                            <Buttons
+                                buttonText="Log in"
+                            />
                             <p>New here? Click <Link to="/signup"><span id="sign-up-link">here </span></Link>to
                                 sign up!</p>
                         </fieldset>
